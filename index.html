@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Guess Number</title>
+</head>
+<body>
+<script>
+    const SECRET_NUMBER =82;
+
+
+    function createArray() {
+        let array = [];
+        for (let i = 0; i < 100; i++) {
+            array[i] = i;
+            array.push(array[i]);
+        }
+        return array;
+    }
+
+    // function seqSearch(arr) {
+    //     for(let i=0; i<arr.length;i++){
+    //         let number=parseInt(prompt("guess a number: "));
+    //         let position=arr.indexOf(number);
+    //         if(number===SECRET_NUMBER){
+    //             return 1;
+    //         }else{
+    //             return -1;
+    //         }
+    //
+    //     }
+    // }
+    // let array =createArray();
+    // let firstMilliseconds1 = new Date().getMilliseconds();
+    //
+    // for(let i=0; i<array.length; i++) {
+    //     if (seqSearch(array) ==1) {
+    //         alert("You win");
+    //         break;
+    //     } else {
+    //         alert("Guess it again!");
+    //     }
+    // }
+    //    let lastMilliseconds1 = new  Date().getMilliseconds();
+    // let playingtime1 = lastMilliseconds1 - firstMilliseconds1;
+    //
+    // alert("Playing time is: "+ playingtime1);
+
+
+   function binarySearch(arr) {
+       let number=parseInt(prompt("Guess a number from 0 to 100: "));
+       let mid= arr.indexOf(number);
+       if(number===SECRET_NUMBER){
+           alert("You win!");
+           return true;
+       }else if( number>SECRET_NUMBER){
+           alert("To high");
+           return binarySearch(array.splice(mid,arr.length-mid));
+       }else {
+           alert("To low!");
+           return binarySearch(arr.splice(mid-1,0));
+       }
+   }
+   let array =createArray();
+    let firstMilliseconds2 = new Date().getMilliseconds();
+   binarySearch(array);
+    let lastMilliseconds2 = new  Date().getMilliseconds();
+   let playingtime2 = lastMilliseconds2 - firstMilliseconds2;
+
+    alert("Playing time is: "+ playingtime2);
+
+</script>
+</body>
+</html>
