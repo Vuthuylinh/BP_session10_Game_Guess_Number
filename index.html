@@ -42,7 +42,7 @@
     //     }
     // }
     //    let lastMilliseconds1 = new  Date().getMilliseconds();
-    // let playingtime1 = lastMilliseconds1 - firstMilliseconds1;
+    // let playingtime1 = parseInt(lastMilliseconds1) - parseInt(firstMilliseconds1);
     //
     // alert("Playing time is: "+ playingtime1);
 
@@ -55,7 +55,7 @@
            return true;
        }else if( number>SECRET_NUMBER){
            alert("To high");
-           return binarySearch(array.splice(mid,arr.length-mid));
+           return binarySearch(arr.splice(mid,arr.length-mid));
        }else {
            alert("To low!");
            return binarySearch(arr.splice(mid-1,0));
@@ -64,9 +64,8 @@
    let array =createArray();
     let firstMilliseconds2 = new Date().getMilliseconds();
    binarySearch(array);
-    let lastMilliseconds2 = new  Date().getMilliseconds();
-   let playingtime2 = lastMilliseconds2 - firstMilliseconds2;
-
+    let lastMilliseconds2 = new Date().getMilliseconds();
+   let playingtime2 = parseInt(lastMilliseconds2) - parseInt(firstMilliseconds2);
     alert("Playing time is: "+ playingtime2);
 
 </script>
